@@ -1,80 +1,36 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
 <head>
-  <title>Meu Site Simples</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+  <title>Meu Site de Contato</title>
+  
   <style>
-    /* Estilos CSS 
     body {
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
-    }
-
-    header {
-      background-color: #272727;
-      color: #fff;
-      padding: 20px;
-      text-align: center;
-    }
-
-    nav {
-      background-color: #f4f4f4;
-      padding: 10px;
-    }
-
-    nav ul {
-      list-style-type: none;
-      margin: 0;
-      padding: 0;
-      text-align: center;
-    }
-
-    nav ul li {
-      display: inline-block;
-    }
-
-    nav ul li a {
-      text-decoration: none;
-      color: #020202;
-      padding: 10px 20px;
-    }
-
-    nav ul li a:hover {
-      background-color: #343333;
-      color: #fff;
-    }
-
-    main {
-      padding: 20px;
-    }
-
-    footer {
-      background-color: #333;
-      color: #fff;
-      padding: 20px;
-      text-align: center;
-    }*/
-
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-image: url(imagens/code-1839406_1280.jpg);
+      background-image: url('imagens/code-1839406_1280.jpg');
       background-position: center center;
       background-size: cover;
-      
-
+      background-attachment: fixed;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
     }
 
     header {
-      background-color: #000000;
+      background-color: #343a40;
       color: #fff;
-      padding: 10px;
+      padding: 20px;
       text-align: center;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
 
     nav {
-      background-color: black;
+      background-color: #495057;
       padding: 10px;
     }
 
@@ -87,47 +43,75 @@
 
     nav ul li {
       display: inline-block;
-      
-      
+      margin: 0 10px;
     }
 
     nav ul li a {
       text-decoration: none;
       color: #ffffff;
       padding: 10px 20px;
+      transition: background-color 0.3s, color 0.3s;
     }
 
     nav ul li a:hover {
       background-color: #ffffff;
       color: #000000;
+      border-radius: 5px;
     }
 
     main {
-    
-    height: 980px;
-    background-color: white;
-    max-width: 800px;
-    padding: 20px;
-    margin: auto;
-    border: 1px solid rgb(0, 0, 0);
-    border-radius: 15px;
-    
-
+      background-color: rgba(255, 255, 255, 0.9);
+      max-width: 800px;
+      padding: 20px;
+      margin: 40px auto;
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      flex-grow: 1;
     }
 
     footer {
-      background-color: #000000;
+      background-color: #343a40;
       color: #ffffff;
       padding: 20px;
       text-align: center;
-      
- 
+      box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+      position: relative;
+      bottom: 0;
+      width: 100%;
+    }
+
+    .contact-info {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+
+    .contact-info img {
+      width: 24px;
+      height: 24px;
+      margin-right: 10px;
+    }
+
+    .contact-info a {
+      color: #000000;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .contact-info a:hover {
+      color: #007bff;
+    }
+
+    .contact-info code {
+      background-color: rgba(0, 0, 0, 0.05);
+      padding: 2px 4px;
+      border-radius: 4px;
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>Para mais informções </h1>
+    <h1>Para mais informações</h1>
   </header>
 
   <nav>
@@ -139,21 +123,28 @@
   </nav>
 
   <main>
-    
-    
     <h2>Contatos</h2>
-    <p>Entre em contato </p>
-    <p>pelo e-mail: <code>bretanpablo@gmail.com</code></p>
-    <p><img src="WhatsApp.svg.png" alt=""><a href="https://wa.me/+5517997066601"><code>+5517997066601</code></a></p>
-    <p><img src="vecteezy_instagram-logo-png-instagram-icon-transparent_18930413_874.png" alt=""><a href="https://www.instagram.com/bretan_dev?igsh=MWtsbzY5NHJvNm12ZA%3D%3D&utm_source=qr"><code>@bretan_dev</code></a></p>
-    <p><img src="Linkedin-Logo.png" alt=""><a href="https://www.linkedin.com/in/pablo-rafael-bretan-99176416b/"><code>Pablo Rafael Bretan</code></a></p>
-    <p><img src="0_CpxR8zt1z6vZDorB.png" alt=""><a href="https://github.com/PABLOBRETAN"><code>Pablo</code></a></p>
+    <p>Entre em contato pelo e-mail: <code>bretanpablo@gmail.com</code></p>
+    <div class="contact-info">
+      <img src="imagens/WhatsApp.svg.png" alt="WhatsApp">
+      <a href="https://wa.me/+5517997066601"><code>+55 17 99706-6601</code></a>
+    </div>
+    <div class="contact-info">
+      <img src="imagens/vecteezy_instagram-logo-png-instagram-icon-transparent_18930413_874.png" alt="Instagram">
+      <a href="https://www.instagram.com/bretan_dev?igsh=MWtsbzY5NHJvNm12ZA%3D%3D&utm_source=qr"><code>@bretan_dev</code></a>
+    </div>
+    <div class="contact-info">
+      <img src="imagens/Linkedin-Logo.png" alt="LinkedIn">
+      <a href="https://www.linkedin.com/in/pablo-rafael-bretan-99176416b/"><code>Pablo Rafael Bretan</code></a>
+    </div>
+    <div class="contact-info">
+      <img src="imagens/0_CpxR8zt1z6vZDorB.png" alt="GitHub">
+      <a href="https://github.com/PABLOBRETAN"><code>Pablo</code></a>
+    </div>
   </main>
 
   <footer>
-    <code>
-        <p>&copy; 2024 Pablo Rafael Bretan. Todos os direitos reservados. </p>
-    </code>
+    <p>&copy; 2024 Pablo Rafael Bretan. Todos os direitos reservados.</p>
   </footer>
 </body>
 </html>

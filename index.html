@@ -1,32 +1,42 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
 <head>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="body">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
-  <title>Meu Site Simples</title>
+  <title>Meu Site de Perfil</title>
   
   <style>
-    /* Estilos CSS */
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Arial', sans-serif;
       margin: 0;
       padding: 0;
-      background-image: url(imagens/code-1839406_1280.jpg);
+      background-image: url('imagens/code-1839406_1280.jpg');
       background-position: center center;
       background-size: cover;
-      
+      background-attachment: fixed;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      animation: backgroundAnimation 20s infinite alternate;
+    }
 
+    @keyframes backgroundAnimation {
+      0% { filter: brightness(1); }
+      100% { filter: brightness(0.7); }
     }
 
     header {
-      background-color: #000000;
+      background-color: #343a40;
       color: #fff;
       padding: 20px;
       text-align: center;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
 
     nav {
-      background-color: rgb(0, 0, 0);
+      background-color: #495057;
       padding: 10px;
     }
 
@@ -39,63 +49,93 @@
 
     nav ul li {
       display: inline-block;
-      
-      
+      margin: 0 10px;
     }
 
     nav ul li a {
       text-decoration: none;
-      color: #ffffff;
+      color: #fff;
       padding: 10px 20px;
+      transition: background-color 0.3s, color 0.3s;
     }
 
     nav ul li a:hover {
-      background-color: #ffffff;
-      color: #000000;
+      background-color: #fff;
+      color: #000;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     }
 
     main {
-      height: 100vh;
-     background-color: white;
-     max-width: 600px;
-     padding: 10px;
-     margin: auto;
-     border: 1px solid rgb(255, 255, 255);
-     border-radius: 15px;
-     
+      background-color: rgba(255, 255, 255, 0.9);
+      max-width: 800px;
+      padding: 20px;
+      margin: 40px auto;
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      flex-grow: 1;
+      transition: transform 0.3s, opacity 0.3s;
+      transform: translateY(10px);
+      opacity: 0;
+    }
 
+    main.show {
+      transform: translateY(0);
+      opacity: 1;
     }
 
     footer {
-      background-color: #000000;
-      color: #000000;
+      background-color: #343a40;
+      color: #fff;
       padding: 20px;
       text-align: center;
-      
- 
+      box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+      position: relative;
+      bottom: 0;
+      width: 100%;
     }
+
     h3 {
-    
-     background-color: white;
-     max-width: 400px;
-     padding: 10px;
-     margin: auto;
-     border: 1px solid rgb(255, 255, 255);
-     border-radius: 15px;
-
-
+      background-color: rgba(255, 255, 255, 0.9);
+      padding: 10px;
+      margin: 20px auto;
+      border-radius: 15px;
+      text-align: center;
+      max-width: 400px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
-    main#main2 {
+
+    #main2 {
+      display: flex;
+      justify-content: center;
+      align-items: center;
       height: 300px;
-      background-image: url(imagens/eu.png);
-      background-size: 300px 300px;
-      background-repeat: no-repeat;
-      background-position: top;
-      
-
+      background-color: rgba(255, 255, 255, 0.9);
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s;
     }
-   
-   
+
+    #main2 img {
+      max-height: 100%;
+      max-width: 100%;
+      border-radius: 15px;
+      transition: transform 0.3s;
+    }
+
+    #main2 img:hover {
+      transform: scale(1.1);
+    }
+
+    p, ul {
+      margin: 0;
+      padding: 10px 0;
+    }
+
+    ul {
+      list-style-type: disc;
+      padding-left: 20px;
+    }
   </style>
 </head>
 <body>
@@ -104,7 +144,7 @@
   </header>
 
   <nav>
-    <ul >
+    <ul>
       <li><a href="index.html">Página Inicial</a></li>
       <li><a href="sobre.html">Sobre</a></li>
       <li><a href="contato.html">Contato</a></li>
@@ -113,31 +153,28 @@
 
   <main>
     <h3>Nome: Pablo Rafael Bretan</h3>
-
-<p>
-  Data de Nascimento: 19/03/1998</p>
-  
-  <p>Local de Nascimento: Santa Fé do Sul</p>
-
-
-<p>Formação Acadêmica:</p>
-
- <ul>
-  <li>Estudante de Matemática</li>
-  <li>Estudante de Análise e Desenvolvimento de Sistemas</li>
-  <li>Técnico Químico</li>
- </ul>
-
-  <main id="main2">
-
-  </main>
-
+    <p>Data de Nascimento: 19/03/1998</p>
+    <p>Local de Nascimento: Santa Fé do Sul</p>
+    <p>Formação Acadêmica:</p>
+    <ul>
+      <li>Estudante de Matemática</li>
+      <li>Estudante de Análise e Desenvolvimento de Sistemas</li>
+      <li>Técnico Químico</li>
+    </ul>
+    <div id="main2">
+      <img src="imagens/eu.png" alt="Imagem de Perfil">
+    </div>
   </main>
 
   <footer>
-    <code>
-        <p style="color: #fff;">&copy; 2024 Pablo Rafael Bretan. Todos os direitos reservados. </p>
-    </code>
+    <p>&copy; 2024 Pablo Rafael Bretan. Todos os direitos reservados.</p>
   </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const mainContent = document.querySelector("main");
+      mainContent.classList.add("show");
+    });
+  </script>
 </body>
 </html>
