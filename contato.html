@@ -6,9 +6,19 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
   <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-  <title>Meu Site de Contato</title>
+  <title>Contato - Meu Site de Perfil</title>
   
   <style>
+    /* Cores principais */
+    :root {
+      --color-primary: #1a1a1a;
+      --color-secondary: #333333;
+      --color-accent: #9b9b9b;
+      --color-light: #f8f9fa;
+      --color-white: #ffffff;
+    }
+
+    /* Estilos personalizados */
     body {
       font-family: 'Roboto', sans-serif;
       margin: 0;
@@ -20,11 +30,12 @@
       display: flex;
       flex-direction: column;
       min-height: 100vh;
+      color: var(--color-primary);
     }
 
     header {
-      background-color: rgba(52, 58, 64, 0.8); /* Transparência */
-      color: #fff;
+      background-color: rgba(52, 58, 64, 0.8);
+      color: var(--color-white);
       padding: 20px;
       text-align: center;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -32,7 +43,7 @@
     }
 
     nav {
-      background-color: rgba(73, 80, 87, 0.8); /* Transparência */
+      background-color: rgba(73, 80, 87, 0.8);
       padding: 10px;
     }
 
@@ -50,7 +61,7 @@
 
     nav ul li a {
       text-decoration: none;
-      color: #ffffff;
+      color: var(--color-white);
       padding: 10px 20px;
       transition: background-color 0.3s, color 0.3s;
       font-weight: 700;
@@ -58,23 +69,31 @@
 
     nav ul li a:hover {
       background-color: rgba(255, 255, 255, 0.8);
-      color: #000000;
+      color: var(--color-primary);
       border-radius: 5px;
     }
 
     main {
-      background-color: rgba(255, 255, 255, 0.9); /* Transparência */
+      background-color: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
       max-width: 800px;
       padding: 20px;
       margin: 40px auto;
       border-radius: 15px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s, box-shadow 0.3s;
       flex-grow: 1;
     }
 
+    main.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
     footer {
-      background-color: rgba(52, 58, 64, 0.8); /* Transparência */
-      color: #ffffff;
+      background-color: rgba(52, 58, 64, 0.8);
+      color: var(--color-white);
       padding: 20px;
       text-align: center;
       box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
@@ -83,38 +102,61 @@
       width: 100%;
     }
 
+    h2 {
+      color: white;
+      background-color: rgba(255, 255, 255, 0.258);
+      padding: 10px;
+      margin: 20px auto;
+      border-radius: 15px;
+      text-align: center;
+      max-width: 400px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      font-family: 'Lobster', cursive;
+    }
+
     .contact-info {
       display: flex;
       align-items: center;
       margin-bottom: 15px;
+      padding: 10px;
+      background-color: rgba(255, 255, 255, 0.258);
+      border-radius: 15px;
+      transition: transform 0.3s;
+    }
+
+    .contact-info:hover {
+      transform: translateX(5px);
     }
 
     .contact-info img {
-      width: 24px;
-      height: 24px;
-      margin-right: 10px;
+      width: 32px;
+      height: 32px;
+      margin-right: 15px;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
     }
 
     .contact-info a {
-      color: #000000;
+      color: var(--color-white);
       text-decoration: none;
       transition: color 0.3s;
+      font-weight: 500;
     }
 
     .contact-info a:hover {
-      color: #007bff;
+      color: var(--color-accent);
     }
 
     .contact-info code {
       background-color: rgba(0, 0, 0, 0.05);
-      padding: 2px 4px;
+      padding: 4px 8px;
       border-radius: 4px;
+      font-family: 'Roboto', monospace;
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>Para mais informações</h1>
+    <h1>Entre em Contato</h1>
   </header>
 
   <nav>
@@ -126,33 +168,48 @@
   </nav>
 
   <main>
-    <h2>Contatos</h2>
-    <p>Entre em contato pelo e-mail: <code>bretanpablo@gmail.com</code></p>
+    <h2>Contatos Profissionais</h2>
+    
     <div class="contact-info">
       <img src="imagens/WhatsApp.svg.png" alt="WhatsApp">
       <a href="https://wa.me/+5517997066601"><code>+55 17 99706-6601</code></a>
     </div>
+
     <div class="contact-info">
       <img src="imagens/vecteezy_instagram-logo-png-instagram-icon-transparent_18930413_874.png" alt="Instagram">
-      <a href="https://www.instagram.com/bretan_dev?igsh=MWtsbzY5NHJvNm12ZA%3D%3D&utm_source=qr"><code>@bretan_dev</code></a>
+      <a href="https://www.instagram.com/bretan_dev"><code>@bretan_dev</code></a>
     </div>
+
     <div class="contact-info">
       <img src="imagens/Linkedin-Logo.png" alt="LinkedIn">
       <a href="https://www.linkedin.com/in/pablo-rafael-bretan-99176416b/"><code>Pablo Rafael Bretan</code></a>
     </div>
+
     <div class="contact-info">
       <img src="imagens/0_CpxR8zt1z6vZDorB.png" alt="GitHub">
-      <a href="https://github.com/PABLOBRETAN"><code>Pablo</code></a>
+      <a href="https://github.com/PABLOBRETAN"><code>PabloBretan</code></a>
     </div>
-    <div class="contact-info">
-      <img src="imagens/logoyou.png" alt="youtube">
-      <a href="https://www.youtube.com/@bretan_dev"><code>Games e Diversidades</code></a>
 
+    <div class="contact-info">
+      <img src="imagens/logoyou.png" alt="YouTube">
+      <a href="https://www.youtube.com/@bretan_dev"><code>Games e Diversidades</code></a>
+    </div>
+
+    <div class="contact-info">
+      <img src="https://img.cdndsgni.com/preview/12552938.jpg" alt="E-mail">
+      <a href="https://mail.google.com/mail/u/0/#inbox?compose=new"><code>bretanpablo@gmail.com</code></a>
     </div>
   </main>
 
   <footer>
     <p>&copy; 2025 Pablo Rafael Bretan. Todos os direitos reservados.</p>
   </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const mainContent = document.querySelector("main");
+      mainContent.classList.add("show");
+    });
+  </script>
 </body>
 </html>

@@ -6,8 +6,18 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
   <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-  <title>Mais Informações</title>
+  <title>Sobre - Meu Site de Perfil</title>
   <style>
+    /* Cores principais */
+    :root {
+      --color-primary: #1a1a1a; /* Preto */
+      --color-secondary: #333333; /* Cinza escuro */
+      --color-accent: #9b9b9b; /* Azul */
+      --color-light: #f8f9fa; /* Cinza claro */
+      --color-white: #ffffff; /* Branco */
+    }
+
+    /* Estilos personalizados */
     body {
       font-family: 'Roboto', sans-serif;
       margin: 0;
@@ -19,11 +29,12 @@
       display: flex;
       flex-direction: column;
       min-height: 100vh;
+      color: var(--color-light);
     }
 
     header {
       background-color: rgba(52, 58, 64, 0.8); /* Transparência */
-      color: #fff;
+      color: var(--color-white);
       padding: 20px;
       text-align: center;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -49,7 +60,7 @@
 
     nav ul li a {
       text-decoration: none;
-      color: #ffffff;
+      color: var(--color-white);
       padding: 10px 20px;
       transition: background-color 0.3s, color 0.3s;
       font-weight: 700;
@@ -57,23 +68,31 @@
 
     nav ul li a:hover {
       background-color: rgba(255, 255, 255, 0.8);
-      color: #000000;
+      color: var(--color-primary);
       border-radius: 5px;
     }
 
     main {
-      background-color: rgba(255, 255, 255, 0.9); /* Transparência */
+      background-color: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
       max-width: 800px;
       padding: 20px;
       margin: 40px auto;
       border-radius: 15px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s, box-shadow 0.3s;
       flex-grow: 1;
+    }
+
+    main.show {
+      transform: translateY(0);
+      opacity: 1;
     }
 
     footer {
       background-color: rgba(52, 58, 64, 0.8); /* Transparência */
-      color: #ffffff;
+      color: var(--color-white);
       padding: 20px;
       text-align: center;
       box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
@@ -81,11 +100,53 @@
       bottom: 0;
       width: 100%;
     }
+
+    h2 {
+      background-color: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      padding: 10px;
+      margin: 20px auto;
+      border-radius: 15px;
+      text-align: center;
+      max-width: 400px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      font-family: 'Lobster', cursive;
+    }
+
+    p, ul {
+      margin: 0;
+      padding: 10px 0;
+    }
+
+    ul {
+      list-style-type: disc;
+      padding-left: 20px;
+    }
+
+    #clik {
+      display: flex;
+      justify-content: center;
+      margin: 20px 0;
+    }
+
+    .btn-gradient {
+      background: linear-gradient(45deg, var(--color-secondary), var(--color-accent));
+      border: none;
+      color: var(--color-white);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .btn-gradient:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    }
   </style>
 </head>
 <body>
   <header>
-    <h1>Mais Informações Sobre Minhas Formações Acadêmicas</h1>
+    <h1>Sobre Mim</h1>
   </header>
 
   <nav>
@@ -97,39 +158,41 @@
   </nav>
 
   <main>
-    <h2> Matemática</h2>
-    
-    <p>A matemática desempenha um papel fundamental em muitos aspectos da nossa vida e da sociedade. Ela é uma linguagem universal que nos ajuda a descrever e entender o mundo ao nosso redor. Aqui estão algumas maneiras pelas quais a matemática é importante:</p>
+    <h2>Quem sou eu?</h2>
+    <p>
+      Olá! Meu nome é <strong>Pablo Rafael Bretan</strong>, sou formado em <strong>Matemática</strong>, <strong>Análise e Desenvolvimento de Sistemas</strong> e <strong>Técnico em Química</strong>. 
+      Com uma sólida formação multidisciplinar, tenho grande interesse em <strong>tecnologia</strong>, <strong>resolução de problemas</strong> e <strong>inovação</strong>.
+    </p>
+    <p>
+      Ao longo da minha trajetória, adquiri experiência profissional em todas as áreas que cursei, o que me permitiu desenvolver uma visão ampla e integrada para enfrentar desafios complexos. 
+      Minha paixão por <strong>aprendizado contínuo</strong> e minha dedicação à excelência me impulsionam a buscar constantemente novos conhecimentos e aprimorar minhas habilidades.
+    </p>
+    <p>
+      Estou sempre em busca de oportunidades para aplicar meu conhecimento de forma prática, contribuindo para projetos inovadores e soluções que gerem impacto positivo.
+    </p>
+  
+    <h2>Hobbies e Interesses</h2>
     <ul>
-      <li>Resolução de Problemas: A matemática nos ensina a pensar de forma lógica e a resolver problemas de maneira estruturada, habilidades essenciais em diversas áreas da vida e do trabalho.</li>
-      <li>Ciência e Tecnologia: A matemática é a linguagem subjacente à ciência e à tecnologia. Ela nos ajuda a modelar fenômenos naturais, desenvolver teorias científicas e criar tecnologias inovadoras.</li>
-      <li>Engenharia e Arquitetura: Em áreas como engenharia civil e arquitetura, a matemática é usada para projetar estruturas seguras e eficientes, como pontes e edifícios.</li>
-      <li>Economia e Finanças: A matemática é fundamental para a análise financeira, previsão econômica e gestão de investimentos, ajudando a tomar decisões informadas e eficazes.</li>
-      <li>Computação e Inteligência Artificial: A matemática é a base da computação e da inteligência artificial, sendo essencial para o desenvolvimento de algoritmos e modelos computacionais.</li>
-      <li>Educação: A matemática é uma disciplina fundamental no currículo educacional, ajudando a desenvolver habilidades cognitivas e a promover o pensamento crítico.</li>
+      <li><strong>Desenvolvimento de Software</strong>: Criar soluções inovadoras e eficientes por meio da programação.</li>
+      <li><strong>Matemática Aplicada</strong>: Explorar problemas complexos e desenvolver modelos matemáticos para soluções práticas.</li>
+      <li><strong>Educação e Mentoria</strong>: Compartilhar conhecimento por meio de aulas e mentorias, ajudando outros a dominarem Matemática e Tecnologia.</li>
+      <li><strong>Jogos de Estratégia</strong>: Aprimorar habilidades de pensamento crítico, planejamento e tomada de decisões.</li>
+      <li><strong>Química Alimentar</strong>: Estudar a composição e as transformações químicas dos alimentos, buscando entender como a ciência pode melhorar a qualidade e a segurança alimentar.</li>
+      <li><strong>Manutenção de Hardware e Infraestrutura de Rede</strong>: Realizar montagem, configuração e manutenção de computadores e servidores, além de otimizar redes para garantir desempenho e segurança.</li>
+      <li><strong>Tecnologia e Inovação</strong>: Acompanhar as últimas tendências tecnológicas e explorar novas ferramentas e frameworks.</li>
+      <li><strong>Aprendizado Contínuo</strong>: Participar de cursos, workshops e conferências para me manter atualizado e expandir meus conhecimentos.</li>
     </ul>
-
-    <h2>Análise e Desenvolvimento de Sistemas</h2>
-    <P>Um desenvolvedor de software cria, testa e mantém programas de computador, desde aplicativos móveis até sistemas operacionais complexos. Eles utilizam linguagens de programação como Python, Java e C++ para resolver problemas e criar soluções eficientes. Suas principais habilidades incluem programação, resolução de problemas e pensamento lógico e analítico.</P>
-
-    <h5>Áreas de Atuação</h5>
-    <ul>
-      <li>Desenvolvimento Web: Criação de sites e aplicativos web</li>
-      <li>Desenvolvimento de Software de Sistema: Desenvolvimento de sistemas operacionais e software de rede.</li>
-      <li>Desenvolvimento de Aplicativos Móveis: Criação de apps para iOS e Android.</li>
-      <li>Inteligência Artificial e Machine Learning: Algoritmos que permitem computadores aprenderem e tomarem decisões baseadas em dados.</li>
-      <li>Tecnologia em geral</li>
-      
-    </ul>
-    
-    <h2>Técnico em Química</h2>
-    <p>Sou um Técnico em Química com sólida formação e vasta experiência na área. Ao longo de minha carreira, atuei em diversas empresas, realizando análises químicas e físico-químicas, manutenção de equipamentos laboratoriais, e implementação de procedimentos de controle de qualidade. Tenho habilidades avançadas em técnicas de cromatografia e espectrometria, além de proficiência em softwares de análise química.</p>
-    <p>Possuo certificações relevantes e participei de vários treinamentos, mantendo-me sempre atualizado com as melhores práticas e inovações do setor. Também publiquei artigos científicos e participei de conferências e workshops, contribuindo ativamente para a comunidade química.</p>  
-    <p>Estou comprometido com a excelência, segurança no trabalho e sustentabilidade ambiental, buscando constantemente novos desafios e oportunidades para aplicar meus conhecimentos e impulsionar avanços na indústria química.</p>
   </main>
 
   <footer>
     <p>&copy; 2025 Pablo Rafael Bretan. Todos os direitos reservados.</p>
   </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const mainContent = document.querySelector("main");
+      mainContent.classList.add("show");
+    });
+  </script>
 </body>
 </html>
