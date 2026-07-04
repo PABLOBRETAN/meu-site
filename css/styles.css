@@ -309,6 +309,34 @@ h3 {
   margin: 10px 0 0;
 }
 
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.stat-card {
+  min-height: 150px;
+  border: 1px solid rgba(15, 118, 110, 0.18);
+  border-radius: 8px;
+  padding: 24px;
+  background: linear-gradient(180deg, #ffffff, #f6fbfa);
+  box-shadow: 0 12px 34px rgba(23, 32, 51, 0.07);
+}
+
+.stat-card strong {
+  display: block;
+  color: var(--brand-dark);
+  font-size: 1.65rem;
+  line-height: 1;
+  margin-bottom: 12px;
+}
+
+.stat-card span {
+  color: var(--muted);
+  font-weight: 650;
+}
+
 .pill-list {
   display: flex;
   flex-wrap: wrap;
@@ -334,6 +362,87 @@ h3 {
 
 .feature-list li + li {
   margin-top: 10px;
+}
+
+.skill-board {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.skill-block {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 22px;
+  background: var(--white);
+  box-shadow: 0 12px 34px rgba(23, 32, 51, 0.07);
+}
+
+.skill-block ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 0;
+  margin: 16px 0 0;
+  list-style: none;
+}
+
+.skill-block li {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 7px 10px;
+  color: var(--ink);
+  background: var(--surface-soft);
+  font-size: 0.92rem;
+  font-weight: 700;
+}
+
+.project-list {
+  display: grid;
+  gap: 12px;
+}
+
+.project-list article {
+  border-left: 4px solid var(--brand);
+  border-radius: 8px;
+  padding: 20px 22px;
+  background: var(--white);
+  box-shadow: 0 12px 34px rgba(23, 32, 51, 0.07);
+}
+
+.project-list p {
+  margin: 8px 0 0;
+  color: var(--muted);
+}
+
+.timeline-list {
+  display: grid;
+  gap: 10px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.timeline-list li {
+  position: relative;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 14px 16px 14px 44px;
+  background: var(--white);
+  color: var(--ink);
+  font-weight: 700;
+  box-shadow: 0 10px 26px rgba(23, 32, 51, 0.06);
+}
+
+.timeline-list li::before {
+  content: "";
+  position: absolute;
+  left: 18px;
+  top: 21px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--accent);
 }
 
 .page-hero {
@@ -462,6 +571,8 @@ h3 {
 
   .grid.three,
   .grid.two,
+  .stats-grid,
+  .skill-board,
   .contact-grid {
     grid-template-columns: 1fr;
   }
