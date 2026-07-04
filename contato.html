@@ -1,274 +1,107 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-  <title>Contato - Meu Site de Perfil</title>
-  
-  <style>
-    /* Cores principais */
-    :root {
-      --color-primary: #1a1a1a;
-      --color-secondary: #333333;
-      --color-accent: #9b9b9b;
-      --color-light: #f8f9fa;
-      --color-white: #ffffff;
-    }
-
-    /* Estilos personalizados */
-    body {
-      font-family: 'Roboto', sans-serif;
-      margin: 0;
-      padding: 0;
-      background-image: url('imagens/code-1839406_1280.jpg');
-      background-position: center center;
-      background-size: cover;
-      background-attachment: fixed;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-      color: var(--color-primary);
-    }
-
-    header {
-      background-color: rgba(52, 58, 64, 0.8);
-      color: var(--color-white);
-      padding: 20px;
-      text-align: center;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      font-family: 'Lobster', cursive;
-    }
-
-    nav {
-      background-color: rgba(255, 255, 255, 0);
-      /* Transparência */
-      padding: 10px;
-    }
-
-    nav ul {
-      list-style-type: none;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      justify-content: center;
-      flex-wrap: nowrap;
-
-      /* Impede a quebra de linha */
-    }
-
-    nav ul li {
-      background-color: rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(10px);
-      border: 1px solid transparent;
-      padding: 8px 12px;
-      /* Reduz o padding */
-      margin: 0 5px;
-      border-radius: 15px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      flex-shrink: 1;
-      /* Permite que os itens encolham */
-      white-space: nowrap;
-      /* Mantém o texto em uma linha */
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      cursor: pointer;
-      position: relative;
-      overflow: hidden;
-    }
-
-    nav ul li::before {
-      content: '';
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 0;
-      height: 0;
-      background: rgba(255, 255, 255, 0.1);
-      border-radius: 50%;
-      transform: translate(-50%, -50%);
-      transition: width 0.3s, height 0.3s;
-    }
-
-    nav ul li:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-      border: 1px solid rgba(255, 255, 255, 0.3);
-    }
-
-    nav ul li:hover::before {
-      width: 150px;
-      height: 150px;
-    }
-
-    nav ul li:active {
-      transform: translateY(1px);
-      transition: transform 0.1s;
-    }
-
-    nav ul li a {
-      text-decoration: none;
-      color: var(--color-white);
-      padding: 8px 12px;
-      font-size: 0.8em;
-      position: relative;
-      z-index: 1;
-      transition: color 0.3s;
-      /* Reduz o tamanho da fonte */
-      
-    }
-
-    /* Ajustes para telas muito pequenas */
-    @media (max-width: 480px) {
-      nav ul li {
-        padding: 6px 8px;
-        margin: 0 3px;
-      }
-
-      nav ul li a {
-        padding: 6px 8px;
-        font-size: 0.8em;
-      }
-    }
-
-    main {
-      background-color: rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      max-width: 800px;
-      padding: 20px;
-      margin: 10px auto;
-      border-radius: 15px;
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-      transition: transform 0.3s, box-shadow 0.3s;
-      flex-grow: 1;
-    }
-
-    main:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
-}
-
-    footer {
-      background-color: rgba(52, 58, 64, 0.8);
-      color: var(--color-white);
-      padding: 20px;
-      text-align: center;
-      box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
-      position: relative;
-      bottom: 0;
-      width: 100%;
-    }
-
-    h2 {
-      color: white;
-      background-color: rgba(255, 255, 255, 0.258);
-      padding: 10px;
-      margin: 20px auto;
-      border-radius: 15px;
-      text-align: center;
-      max-width: 400px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      font-family: 'Lobster', cursive;
-    }
-
-    .contact-info {
-      display: flex;
-      align-items: center;
-      margin-bottom: 15px;
-      padding: 10px;
-      background-color: rgba(255, 255, 255, 0.258);
-      border-radius: 15px;
-      transition: transform 0.3s;
-    }
-
-    .contact-info:hover {
-      transform: translateX(5px);
-    }
-
-    .contact-info img {
-      width: 32px;
-      height: 32px;
-      margin-right: 15px;
-      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
-    }
-
-    .contact-info a {
-      color: var(--color-white);
-      text-decoration: none;
-      transition: color 0.3s;
-      font-weight: 500;
-    }
-
-    .contact-info a:hover {
-      color: var(--color-accent);
-    }
-
-    .contact-info code {
-      background-color: rgba(0, 0, 0, 0.05);
-      padding: 4px 8px;
-      border-radius: 4px;
-      font-family: 'Roboto', monospace;
-    }
-  </style>
+  <meta name="description" content="Contatos profissionais de Pablo Rafael Bretan: WhatsApp, LinkedIn, GitHub, Instagram, YouTube e e-mail.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <title>Contato | Pablo Rafael Bretan</title>
 </head>
+
 <body>
-  <header>
-    <h1>Entre em Contato</h1>
-  </header>
+  <div class="site-shell">
+    <header class="topbar">
+      <nav class="nav-wrap" aria-label="Navegação principal">
+        <a class="brand" href="index.html">
+          <span class="brand-mark">PB</span>
+          <span>Pablo Bretan</span>
+        </a>
+        <ul class="nav-links">
+          <li><a href="index.html">Início</a></li>
+          <li><a href="sobre.html">Sobre</a></li>
+          <li><a class="active" href="contato.html">Contato</a></li>
+        </ul>
+      </nav>
+    </header>
 
-  <nav>
-    <ul>
-      <li><a href="index.html">Página Inicial</a></li>
-      <li><a href="sobre.html">Sobre</a></li>
-      <li><a href="contato.html">Contato</a></li>
-    </ul>
-  </nav>
+    <main class="content">
+      <section class="page-hero">
+        <div class="container">
+          <div class="eyebrow">Contato profissional</div>
+          <h1>Vamos conversar sobre tecnologia, projetos e oportunidades.</h1>
+          <p>
+            Escolha o canal mais prático para falar comigo. Respondo melhor por WhatsApp,
+            LinkedIn ou e-mail.
+          </p>
+        </div>
+      </section>
 
-  <main>
-    <h2>Contatos Profissionais</h2>
-    
-    <div class="contact-info">
-      <img src="imagens/WhatsApp.svg.png" alt="WhatsApp">
-      <a href="https://wa.me/+5517997066601"><code>+55 17 99706-6601</code></a>
-    </div>
+      <section class="section alt">
+        <div class="container">
+          <div class="contact-grid">
+            <a class="contact-card" href="https://wa.me/5517997066601" target="_blank" rel="noopener">
+              <img src="imagens/WhatsApp.svg.png" alt="" aria-hidden="true">
+              <div>
+                <span>WhatsApp</span>
+                <strong>+55 17 99706-6601</strong>
+              </div>
+            </a>
 
-    <div class="contact-info">
-      <img src="imagens/vecteezy_instagram-logo-png-instagram-icon-transparent_18930413_874.png" alt="Instagram">
-      <a href="https://www.instagram.com/bretan_dev"><code>@bretan_dev</code></a>
-    </div>
+            <a class="contact-card" href="https://www.linkedin.com/in/pablo-rafael-bretan-99176416b/" target="_blank" rel="noopener">
+              <img src="imagens/Linkedin-Logo.png" alt="" aria-hidden="true">
+              <div>
+                <span>LinkedIn</span>
+                <strong>Pablo Rafael Bretan</strong>
+              </div>
+            </a>
 
-    <div class="contact-info">
-      <img src="imagens/Linkedin-Logo.png" alt="LinkedIn">
-      <a href="https://www.linkedin.com/in/pablo-rafael-bretan-99176416b/"><code>Pablo Rafael Bretan</code></a>
-    </div>
+            <a class="contact-card" href="https://github.com/PABLOBRETAN" target="_blank" rel="noopener">
+              <img src="imagens/0_CpxR8zt1z6vZDorB.png" alt="" aria-hidden="true">
+              <div>
+                <span>GitHub</span>
+                <strong>PABLOBRETAN</strong>
+              </div>
+            </a>
 
-    <div class="contact-info">
-      <img src="imagens/0_CpxR8zt1z6vZDorB.png" alt="GitHub">
-      <a href="https://github.com/PABLOBRETAN"><code>PabloBretan</code></a>
-    </div>
+            <a class="contact-card" href="mailto:bretanpablo@gmail.com">
+              <div class="contact-icon" aria-hidden="true">@</div>
+              <div>
+                <span>E-mail</span>
+                <strong>bretanpablo@gmail.com</strong>
+              </div>
+            </a>
 
-    <div class="contact-info">
-      <img src="imagens/logoyou.png" alt="YouTube">
-      <a href="https://www.youtube.com/@bretan_dev"><code>Games Onlinex</code></a>
-    </div>
+            <a class="contact-card" href="https://www.instagram.com/bretan_dev" target="_blank" rel="noopener">
+              <img src="imagens/vecteezy_instagram-logo-png-instagram-icon-transparent_18930413_874.png" alt="" aria-hidden="true">
+              <div>
+                <span>Instagram</span>
+                <strong>@bretan_dev</strong>
+              </div>
+            </a>
 
-    <div class="contact-info">
-      <img src="https://img.cdndsgni.com/preview/12552938.jpg" alt="E-mail">
-      <a href="https://mail.google.com/mail/u/0/#inbox?compose=new"><code>bretanpablo@gmail.com</code></a>
-    </div>
-  </main>
+            <a class="contact-card" href="https://www.youtube.com/@bretan_dev" target="_blank" rel="noopener">
+              <img src="imagens/logoyou.png" alt="" aria-hidden="true">
+              <div>
+                <span>YouTube</span>
+                <strong>@bretan_dev</strong>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
 
-  <footer>
-    <p>&copy; 2025 Pablo Rafael Bretan. Todos os direitos reservados.</p>
-  </footer>
-
-  <script>
-    document.addEventListener("DOMContentLoaded", function() {
-      const mainContent = document.querySelector("main");
-      mainContent.classList.add("show");
-    });
-  </script>
+    <footer class="footer">
+      <div class="container">
+        <span>&copy; 2026 Pablo Rafael Bretan. Todos os direitos reservados.</span>
+        <a href="index.html">Voltar ao início</a>
+      </div>
+    </footer>
+  </div>
 </body>
+
 </html>

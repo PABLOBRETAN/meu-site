@@ -4,284 +4,104 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
-    crossorigin="anonymous"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Roboto:wght@400;700&display=swap"
-    rel="stylesheet">
-  <title>Meu Site de Perfil</title>
-
-  <style>
-    /* Cores principais */
-    :root {
-      --color-primary: #1a1a1a;
-      /* Preto */
-      --color-secondary: #333333;
-      /* Cinza escuro */
-      --color-accent: #9b9b9b;
-      /* Azul */
-      --color-light: #f8f9fa;
-      /* Cinza claro */
-      --color-white: #ffffff;
-      /* Branco */
-    }
-
-    /* Estilos personalizados */
-    body {
-      font-family: 'Roboto', sans-serif;
-      margin: 0;
-      padding: 0;
-      background-image: url('imagens/code-1839406_1280.jpg');
-      background-position: center center;
-      background-size: cover;
-      background-attachment: fixed;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-      color: var(--color-light);
-    }
-
-    header {
-      background-color: rgba(52, 58, 64, 0.8);
-      /* Transparência */
-      color: var(--color-white);
-      padding: 20px;
-      text-align: center;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      font-family: 'Lobster', cursive;
-    }
-
-    nav {
-      background-color: rgba(255, 255, 255, 0);
-      /* Transparência */
-      padding: 10px;
-    }
-
-    nav ul {
-      list-style-type: none;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      justify-content: center;
-      flex-wrap: nowrap;
-
-      /* Impede a quebra de linha */
-    }
-
-    nav ul li {
-      background-color: rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(10px);
-      border: 1px solid transparent;
-      padding: 8px 12px;
-      /* Reduz o padding */
-      margin: 0 5px;
-      border-radius: 15px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      flex-shrink: 1;
-      /* Permite que os itens encolham */
-      white-space: nowrap;
-      /* Mantém o texto em uma linha */
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      cursor: pointer;
-      position: relative;
-      overflow: hidden;
-    }
-
-    nav ul li::before {
-      content: '';
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 0;
-      height: 0;
-      background: rgba(255, 255, 255, 0.1);
-      border-radius: 50%;
-      transform: translate(-50%, -50%);
-      transition: width 0.3s, height 0.3s;
-    }
-
-    nav ul li:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-      border: 1px solid rgba(255, 255, 255, 0.3);
-    }
-
-    nav ul li:hover::before {
-      width: 150px;
-      height: 150px;
-    }
-
-    nav ul li:active {
-      transform: translateY(1px);
-      transition: transform 0.1s;
-    }
-
-    nav ul li a {
-      text-decoration: none;
-      color: var(--color-white);
-      padding: 8px 12px;
-      font-size: 0.8em;
-      position: relative;
-      z-index: 1;
-      transition: color 0.3s;
-      /* Reduz o tamanho da fonte */
-      
-    }
-
-    /* Ajustes para telas muito pequenas */
-    @media (max-width: 480px) {
-      nav ul li {
-        padding: 6px 8px;
-        margin: 0 3px;
-      }
-
-      nav ul li a {
-        padding: 6px 8px;
-        font-size: 0.8em;
-      }
-    }
-
-    main {
-      background-color: rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      max-width: 800px;
-      padding: 20px;
-      margin: 10px auto;
-      border-radius: 15px;
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-      transition: transform 0.3s, box-shadow 0.3s;
-      flex-grow: 1;
-    }
-
-    main:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
-    }
-
-    footer {
-      background-color: rgba(52, 58, 64, 0.8);
-      /* Transparência */
-      color: var(--color-white);
-      padding: 20px;
-      text-align: center;
-      box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
-      position: relative;
-      bottom: 0;
-      width: 100%;
-    }
-
-    h3 {
-      background-color: rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      padding: 10px;
-      margin: 20px auto;
-      border-radius: 15px;
-      text-align: center;
-      max-width: 400px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      font-family: 'Lobster', cursive;
-    }
-
-    #main2 {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 300px;
-      transition: transform 0.3s;
-    }
-
-    #main2 img {
-      max-height: 100%;
-      max-width: 100%;
-      border-radius: 15px;
-      transition: transform 0.3s;
-    }
-
-    #main2 img:hover {
-      transform: scale(1.1);
-    }
-
-    p,
-    ul {
-      margin: 0;
-      padding: 5px 0;
-    }
-
-    ul {
-      list-style-type: disc;
-      padding-left: 20px;
-    }
-
-    #clik {
-      display: flex;
-      justify-content: center;
-      margin: 20px 0;
-
-    }
-
-    .btn-gradient {
-      background: linear-gradient(45deg, var(--color-secondary), var(--color-accent));
-      border: none;
-      color: var(--color-white);
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-
-    .btn-gradient:hover {
-      transform: translateY(-2px);
-    }
-  </style>
+  <meta name="description" content="Portfólio profissional de Pablo Rafael Bretan, com foco em tecnologia, infraestrutura, dados e desenvolvimento de software.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <title>Pablo Rafael Bretan | Tecnologia e Desenvolvimento</title>
 </head>
 
 <body>
-  <header>
-    <h1>Bem-vindo ao Meu Site de Perfil</h1>
-  </header>
+  <div class="site-shell">
+    <header class="topbar">
+      <nav class="nav-wrap" aria-label="Navegação principal">
+        <a class="brand" href="index.html">
+          <span class="brand-mark">PB</span>
+          <span>Pablo Bretan</span>
+        </a>
+        <ul class="nav-links">
+          <li><a class="active" href="index.html">Início</a></li>
+          <li><a href="sobre.html">Sobre</a></li>
+          <li><a href="contato.html">Contato</a></li>
+        </ul>
+      </nav>
+    </header>
 
-  <nav>
-    <ul>
-      <li><a href="index.html">Página Inicial</a></li>
-      <li><a href="sobre.html">Sobre</a></li>
-      <li><a href="contato.html">Contato</a></li>
-    </ul>
-  </nav>
+    <main class="content">
+      <section class="hero">
+        <div class="hero-inner">
+          <div>
+            <div class="eyebrow">Tecnologia, análise e soluções digitais</div>
+            <h1>Pablo Rafael Bretan</h1>
+            <p>
+              Profissional com formação em Matemática, Análise e Desenvolvimento de Sistemas e Química,
+              unindo raciocínio analítico, visão técnica e execução prática para construir soluções eficientes.
+            </p>
+            <div class="hero-actions">
+              <a class="btn-primary" href="contato.html">Entrar em contato</a>
+              <a class="btn-secondary" href="sobre.html">Conhecer trajetória</a>
+            </div>
+          </div>
 
-  <main>
-    <h3>Nome: Pablo Rafael Bretan</h3>
-    <p>Data de Nascimento: 19/03/1998</p>
-    <p>Local de Nascimento: Santa Fé do Sul</p>
-    <p>Formação Acadêmica:</p>
-    <ul>
-      <li>Estudante de Matemática</li>
-      <li>Estudante de Análise e Desenvolvimento de Sistemas</li>
-      <li>Técnico Químico</li>
-    </ul>
-    <div id="main2">
-      <img src="imagens/eu.png" alt="Imagem de Perfil">
-    </div>
-    <div id="clik">
-      <button type="button" class="btn btn-gradient btn-lg"
-          onclick="window.location.href='https://pablobretan.github.io/meu-site/contato.html'">
-          Contato
-      </button>
+          <aside class="profile-panel" aria-label="Resumo profissional">
+            <img src="imagens/eu.png" alt="Foto de Pablo Rafael Bretan">
+            <div class="profile-caption">
+              <strong>Perfil multidisciplinar</strong>
+              <span>Infraestrutura, dados, desenvolvimento e suporte técnico.</span>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="section alt">
+        <div class="container">
+          <div class="section-head">
+            <h2>Áreas de destaque</h2>
+            <p>Atuação conectando tecnologia, processos e aprendizado contínuo para entregar resultados claros.</p>
+          </div>
+
+          <div class="grid three">
+            <article class="card">
+              <h3>Desenvolvimento</h3>
+              <p>Criação de páginas, sistemas, automações e soluções digitais com foco em usabilidade e manutenção.</p>
+            </article>
+            <article class="card">
+              <h3>Infraestrutura</h3>
+              <p>Conhecimentos em redes, hardware, suporte, ambientes computacionais e boas práticas operacionais.</p>
+            </article>
+            <article class="card">
+              <h3>Dados e análise</h3>
+              <p>Base matemática e técnica para organizar informações, interpretar cenários e apoiar decisões.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="section-head">
+            <h2>Formação</h2>
+            <p>Uma base ampla que aproxima lógica, tecnologia e ciência aplicada.</p>
+          </div>
+
+          <ul class="pill-list">
+            <li>Matemática</li>
+            <li>Análise e Desenvolvimento de Sistemas</li>
+            <li>Técnico em Química</li>
+            <li>Santa Fé do Sul, SP</li>
+          </ul>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <span>&copy; 2026 Pablo Rafael Bretan. Todos os direitos reservados.</span>
+        <a href="contato.html">Vamos conversar</a>
+      </div>
+    </footer>
   </div>
-  
-  </main>
-
-  <footer>
-    <p>&copy; 2025 Pablo Rafael Bretan. Todos os direitos reservados.</p>
-  </footer>
-
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const mainContent = document.querySelector("main");
-      mainContent.classList.add("show");
-    });
-  </script>
 </body>
 
 </html>

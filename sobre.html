@@ -1,271 +1,141 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-  <title>Sobre - Meu Site de Perfil</title>
-  <style>
-    /* Cores principais */
-    :root {
-      --color-primary: #1a1a1a; /* Preto */
-      --color-secondary: #333333; /* Cinza escuro */
-      --color-accent: #9b9b9b; /* Azul */
-      --color-light: #f8f9fa; /* Cinza claro */
-      --color-white: #ffffff; /* Branco */
-    }
-
-    /* Estilos personalizados */
-    body {
-      font-family: 'Roboto', sans-serif;
-      margin: 0;
-      padding: 0;
-      background-image: url('imagens/code-1839406_1280.jpg');
-      background-position: center center;
-      background-size: cover;
-      background-attachment: fixed;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-      color: var(--color-light);
-    }
-
-    header {
-      background-color: rgba(52, 58, 64, 0.8); /* Transparência */
-      color: var(--color-white);
-      padding: 20px;
-      text-align: center;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      font-family: 'Lobster', cursive;
-    }
-
-    nav {
-      background-color: rgba(255, 255, 255, 0);
-      /* Transparência */
-      padding: 10px;
-    }
-
-    nav ul {
-      list-style-type: none;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      justify-content: center;
-      flex-wrap: nowrap;
-
-      /* Impede a quebra de linha */
-    }
-
-    nav ul li {
-      background-color: rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(10px);
-      border: 1px solid transparent;
-      padding: 8px 12px;
-      /* Reduz o padding */
-      margin: 0 5px;
-      border-radius: 15px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      flex-shrink: 1;
-      /* Permite que os itens encolham */
-      white-space: nowrap;
-      /* Mantém o texto em uma linha */
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      cursor: pointer;
-      position: relative;
-      overflow: hidden;
-    }
-
-    nav ul li::before {
-      content: '';
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 0;
-      height: 0;
-      background: rgba(255, 255, 255, 0.1);
-      border-radius: 50%;
-      transform: translate(-50%, -50%);
-      transition: width 0.3s, height 0.3s;
-    }
-
-    nav ul li:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-      border: 1px solid rgba(255, 255, 255, 0.3);
-    }
-
-    nav ul li:hover::before {
-      width: 150px;
-      height: 150px;
-    }
-
-    nav ul li:active {
-      transform: translateY(1px);
-      transition: transform 0.1s;
-    }
-
-    nav ul li a {
-      text-decoration: none;
-      color: var(--color-white);
-      padding: 8px 12px;
-      font-size: 0.8em;
-      position: relative;
-      z-index: 1;
-      transition: color 0.3s;
-      /* Reduz o tamanho da fonte */
-      
-    }
-
-    /* Ajustes para telas muito pequenas */
-    @media (max-width: 480px) {
-      nav ul li {
-        padding: 6px 8px;
-        margin: 0 3px;
-      }
-
-      nav ul li a {
-        padding: 6px 8px;
-        font-size: 0.8em;
-      }
-    }
-
-    main {
-      background-color: rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      max-width: 800px;
-      padding: 20px;
-      margin: 10px auto;
-      border-radius: 15px;
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-      transition: transform 0.3s, box-shadow 0.3s;
-      flex-grow: 1;
-    }
-
-    main:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
-    }
-
-    footer {
-      background-color: rgba(52, 58, 64, 0.8); /* Transparência */
-      color: var(--color-white);
-      padding: 20px;
-      text-align: center;
-      box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
-      position: relative;
-      bottom: 0;
-      width: 100%;
-    }
-
-    h2 {
-      background-color: rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      padding: 10px;
-      margin: 20px auto;
-      border-radius: 15px;
-      text-align: center;
-      max-width: 400px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      font-family: 'Lobster', cursive;
-    }
-
-    p, ul {
-      margin: 0;
-      padding: 10px 0;
-    }
-
-    ul {
-      list-style-type: disc;
-      padding-left: 20px;
-    }
-
-    #clik {
-      display: flex;
-      justify-content: center;
-      margin: 20px 0;
-    }
-
-    .btn-gradient {
-      background: linear-gradient(45deg, var(--color-secondary), var(--color-accent));
-      border: none;
-      color: var(--color-white);
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-
-    .btn-gradient:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-    }
-  </style>
+  <meta name="description" content="Conheça a trajetória, áreas de atuação e interesses profissionais de Pablo Rafael Bretan.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <title>Sobre | Pablo Rafael Bretan</title>
 </head>
+
 <body>
-  <header>
-    <h1>Sobre Mim</h1>
-  </header>
+  <div class="site-shell">
+    <header class="topbar">
+      <nav class="nav-wrap" aria-label="Navegação principal">
+        <a class="brand" href="index.html">
+          <span class="brand-mark">PB</span>
+          <span>Pablo Bretan</span>
+        </a>
+        <ul class="nav-links">
+          <li><a href="index.html">Início</a></li>
+          <li><a class="active" href="sobre.html">Sobre</a></li>
+          <li><a href="contato.html">Contato</a></li>
+        </ul>
+      </nav>
+    </header>
 
-  <nav>
-    <ul>
-      <li><a href="index.html">Página Inicial</a></li>
-      <li><a href="sobre.html">Sobre</a></li>
-      <li><a href="contato.html">Contato</a></li>
-    </ul>
-  </nav>
+    <main class="content">
+      <section class="page-hero">
+        <div class="container">
+          <div class="eyebrow">Sobre mim</div>
+          <h1>Construo soluções com lógica, técnica e visão prática.</h1>
+          <p>
+            Sou Pablo Rafael Bretan, formado em Matemática, Análise e Desenvolvimento de Sistemas
+            e Técnico em Química. Minha trajetória combina pensamento analítico, tecnologia e
+            capacidade de resolver problemas reais com clareza.
+          </p>
+        </div>
+      </section>
 
- <main>
-  <section>
-    <h2>Quem sou eu?</h2>
-    <p>
-      Olá! Sou <strong>Pablo Rafael Bretan</strong>, formado em <strong>Matemática</strong>, <strong>Análise e Desenvolvimento de Sistemas</strong> e <strong>Técnico em Química</strong>. Minha formação multidisciplinar me permite unir rigor analítico, pensamento científico e visão tecnológica para entregar soluções práticas e de alto impacto.
-    </p>
-    <p>
-      Atuo em <strong>Tecnologia da Informação</strong> com visão ponta a ponta: <strong>infraestrutura e redes</strong>, <strong>segurança da informação</strong>, <strong>computação em nuvem e virtualização</strong>, <strong>bancos de dados</strong> e <strong>desenvolvimento de software</strong>. Transformo necessidades do negócio em soluções <strong>escaláveis</strong>, <strong>seguras</strong> e <strong>eficientes</strong>, com foco em desempenho, qualidade e resultados mensuráveis.
-    </p>
-    <p>
-      Trabalho com <strong>metodologias ágeis</strong>, boas práticas de <strong>governança</strong> e <strong>documentação</strong>, buscando otimização de processos, redução de custos e melhoria contínua. Estou em constante atualização para incorporar novas ferramentas e tendências que acelerem a inovação e gerem valor sustentável.
-    </p>
-  </section>
+      <section class="section alt">
+        <div class="container">
+          <div class="grid two">
+            <article class="card">
+              <h3>Perfil profissional</h3>
+              <p>
+                Atuo em Tecnologia da Informação com visão ponta a ponta: infraestrutura, redes,
+                segurança da informação, computação em nuvem, bancos de dados e desenvolvimento
+                de software.
+              </p>
+              <p>
+                Busco transformar necessidades em soluções escaláveis, seguras e eficientes, com
+                atenção a desempenho, qualidade, documentação e melhoria contínua.
+              </p>
+            </article>
 
-  <section>
-    <h2>Áreas de atuação</h2>
-    <ul>
-      <li><strong>Infraestrutura e Redes</strong>: planejamento, implantação e sustentação de ambientes, monitoramento e alta disponibilidade.</li>
-      <li><strong>Segurança da Informação</strong>: hardening, controles de acesso, backups, políticas e conformidade.</li>
-      <li><strong>Cloud & Virtualização</strong>: provisionamento, automação e otimização de recursos em nuvem e on-premises.</li>
-      <li><strong>Desenvolvimento de Software</strong>: criação de aplicativos e automações com foco em qualidade, performance e boas práticas.</li>
-      <li><strong>Bancos de Dados & Dados</strong>: modelagem, consultas, integração e análise orientada a decisões.</li>
-      <li><strong>Suporte e Governança</strong>: atendimento técnico, gestão de mudanças, documentação e melhoria contínua.</li>
-    </ul>
-  </section>
+            <article class="card">
+              <h3>Modo de trabalho</h3>
+              <p>
+                Gosto de entender o problema antes de propor a solução, organizar o caminho técnico
+                e entregar resultados que façam sentido para quem usa e para quem mantém.
+              </p>
+              <p>
+                Trabalho com práticas ágeis, comunicação objetiva e aprendizado constante para
+                acompanhar novas ferramentas, tendências e oportunidades de inovação.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
 
-  <section>
-    <h2>Hobbies e Interesses</h2>
-    <ul>
-      <li><strong>Desenvolvimento de Software</strong>: criar soluções úteis e bem estruturadas.</li>
-      <li><strong>Matemática Aplicada</strong>: modelagem e resolução de problemas complexos.</li>
-      <li><strong>Educação e Mentoria</strong>: compartilhar conhecimento em Matemática e Tecnologia.</li>
-      <li><strong>Jogos de Estratégia</strong>: aprimorar pensamento crítico e tomada de decisão.</li>
-      <li><strong>Química de Alimentos</strong>: estudar composição e transformações químicas com foco em qualidade e segurança.</li>
-      <li><strong>Hardware e Redes</strong>: montagem, manutenção e otimização de ambientes.</li>
-      <li><strong>Tecnologia e Inovação</strong>: acompanhar tendências, ferramentas e frameworks.</li>
-      <li><strong>Aprendizado Contínuo</strong>: cursos, workshops e conferências.</li>
-    </ul>
-  </section>
-</main>
+      <section class="section">
+        <div class="container">
+          <div class="section-head">
+            <h2>Áreas de atuação</h2>
+            <p>Competências técnicas que se complementam em projetos de tecnologia e suporte.</p>
+          </div>
 
-  <footer>
-    <p>&copy; 2025 Pablo Rafael Bretan. Todos os direitos reservados.</p>
-  </footer>
+          <div class="grid three">
+            <article class="card">
+              <h3>Infraestrutura e redes</h3>
+              <ul class="feature-list">
+                <li>Planejamento e sustentação de ambientes.</li>
+                <li>Monitoramento, manutenção e disponibilidade.</li>
+                <li>Suporte técnico e documentação.</li>
+              </ul>
+            </article>
+            <article class="card">
+              <h3>Segurança e governança</h3>
+              <ul class="feature-list">
+                <li>Controles de acesso, backups e políticas.</li>
+                <li>Boas práticas de proteção da informação.</li>
+                <li>Gestão de mudanças e melhoria contínua.</li>
+              </ul>
+            </article>
+            <article class="card">
+              <h3>Software e dados</h3>
+              <ul class="feature-list">
+                <li>Aplicações, automações e páginas web.</li>
+                <li>Modelagem, consultas e integração de dados.</li>
+                <li>Análise orientada a decisões.</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
 
-  <script>
-    document.addEventListener("DOMContentLoaded", function() {
-      const mainContent = document.querySelector("main");
-      mainContent.classList.add("show");
-    });
-  </script>
+      <section class="section alt">
+        <div class="container">
+          <div class="section-head">
+            <h2>Interesses</h2>
+            <p>Temas que alimentam minha curiosidade e fortalecem minha prática profissional.</p>
+          </div>
+
+          <ul class="pill-list">
+            <li>Desenvolvimento de software</li>
+            <li>Matemática aplicada</li>
+            <li>Educação e mentoria</li>
+            <li>Jogos de estratégia</li>
+            <li>Química de alimentos</li>
+            <li>Hardware e redes</li>
+            <li>Tecnologia e inovação</li>
+            <li>Aprendizado contínuo</li>
+          </ul>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <span>&copy; 2026 Pablo Rafael Bretan. Todos os direitos reservados.</span>
+        <a href="contato.html">Entrar em contato</a>
+      </div>
+    </footer>
+  </div>
 </body>
+
 </html>
