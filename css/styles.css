@@ -919,6 +919,16 @@ h3 {
   box-shadow: 0 0 0 3px rgba(176, 114, 25, 0.14);
 }
 
+.project-language-dot.python {
+  background: #3572a5;
+  box-shadow: 0 0 0 3px rgba(53, 114, 165, 0.16);
+}
+
+.project-language-dot.powershell {
+  background: #012456;
+  box-shadow: 0 0 0 3px rgba(1, 36, 86, 0.28);
+}
+
 .project-language-dot.javascript {
   background: #f1e05a;
   box-shadow: 0 0 0 3px rgba(241, 224, 90, 0.14);
