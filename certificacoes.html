@@ -4,11 +4,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#050816">
   <meta name="description" content="Certificações, diplomas e especializações de Pablo Bretan em tecnologia, matemática, química e áreas complementares.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
+  <script src="js/site.js" defer></script>
   <title>Certificações | Pablo Bretan</title>
 </head>
 
@@ -23,7 +25,7 @@
         <ul class="nav-links">
           <li><a href="index.html">Início</a></li>
           <li><a href="sobre.html">Sobre</a></li>
-          <li><a class="active" href="certificacoes.html">Certificações</a></li>
+          <li><a class="active" href="certificacoes.html" aria-current="page">Certificações</a></li>
           <li><a href="contato.html">Contato</a></li>
         </ul>
       </nav>
@@ -70,6 +72,14 @@
           <div class="section-head">
             <h2>Documentos por área</h2>
             <p>Todos os links abrem a versão pública do documento, com CPF e RG ocultados.</p>
+          </div>
+
+          <div class="certificate-tools">
+            <label class="certificate-search-wrap">
+              <span class="sr-only">Buscar certificado</span>
+              <input class="certificate-search" type="search" data-certificate-search placeholder="Buscar por curso, tema ou área..." autocomplete="off">
+            </label>
+            <p class="search-result-count" data-certificate-result-count role="status" aria-live="polite">77 documentos disponíveis</p>
           </div>
 
           <div class="certificate-summary" aria-label="Resumo das certificações">
