@@ -851,6 +851,151 @@ h3 {
   font-size: 0.79rem;
 }
 
+.featured-projects .section-head {
+  max-width: 720px;
+}
+
+.featured-project-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.featured-project-card {
+  position: relative;
+  display: flex;
+  min-height: 246px;
+  flex-direction: column;
+  padding: 23px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  color: var(--ink);
+  background: linear-gradient(145deg, rgba(22, 32, 64, 0.88), rgba(10, 16, 36, 0.84));
+  box-shadow: var(--shadow-soft);
+  text-decoration: none;
+}
+
+.featured-project-card::before {
+  position: absolute;
+  top: 0;
+  right: 20px;
+  left: 20px;
+  height: 2px;
+  content: "";
+  background: linear-gradient(90deg, var(--accent), var(--brand), var(--brand-violet));
+  box-shadow: 0 0 18px rgba(110, 231, 255, 0.65);
+}
+
+.project-card-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  color: var(--muted);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.project-language {
+  display: inline-flex;
+  min-width: 0;
+  align-items: center;
+  gap: 7px;
+}
+
+.project-language-dot {
+  width: 8px;
+  height: 8px;
+  flex: 0 0 8px;
+  border-radius: 50%;
+  background: #e34c26;
+  box-shadow: 0 0 0 3px rgba(227, 76, 38, 0.13);
+}
+
+.project-language-dot.java {
+  background: #b07219;
+  box-shadow: 0 0 0 3px rgba(176, 114, 25, 0.14);
+}
+
+.project-language-dot.javascript {
+  background: #f1e05a;
+  box-shadow: 0 0 0 3px rgba(241, 224, 90, 0.14);
+}
+
+.project-language-dot.learning {
+  background: var(--accent);
+  box-shadow: 0 0 0 3px rgba(201, 255, 122, 0.14);
+}
+
+.project-language-dot.tex {
+  background: #3d6117;
+  box-shadow: 0 0 0 3px rgba(61, 97, 23, 0.18);
+}
+
+.project-language-dot.config {
+  background: var(--brand-violet);
+  box-shadow: 0 0 0 3px rgba(155, 140, 255, 0.14);
+}
+
+.project-visibility {
+  padding: 4px 7px;
+  border: 1px solid rgba(110, 231, 255, 0.26);
+  border-radius: 999px;
+  color: var(--brand);
+  background: rgba(110, 231, 255, 0.07);
+  font-size: 0.62rem;
+  line-height: 1;
+}
+
+.project-visibility-private {
+  border-color: rgba(201, 255, 122, 0.24);
+  color: var(--accent);
+  background: rgba(201, 255, 122, 0.07);
+}
+
+.featured-project-card h3 {
+  margin: 25px 0 0;
+  color: var(--white);
+  font-size: 1.05rem;
+  line-height: 1.32;
+}
+
+.featured-project-card p {
+  margin: 10px 0 0;
+  color: var(--muted);
+  font-size: 0.88rem;
+  line-height: 1.55;
+}
+
+.project-card-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: auto;
+  padding-top: 20px;
+  color: var(--brand);
+  font-size: 0.8rem;
+  font-weight: 800;
+}
+
+.project-card-action span {
+  font-size: 1rem;
+  line-height: 1;
+  transition: transform 0.2s ease;
+}
+
+.featured-project-card-private {
+  border-style: dashed;
+  border-color: rgba(201, 255, 122, 0.25);
+  background: linear-gradient(145deg, rgba(35, 48, 54, 0.8), rgba(10, 18, 31, 0.8));
+}
+
+.featured-project-card-private .project-card-action {
+  color: var(--muted);
+}
+
 .project-list {
   display: grid;
   gap: 14px;
@@ -1322,6 +1467,7 @@ h3 {
   .card,
   .skill-block,
   .stat-card,
+  .featured-project-card,
   .project-list article,
   .timeline-list li {
     transition: transform 0.23s ease, border-color 0.23s ease, box-shadow 0.23s ease;
@@ -1330,11 +1476,22 @@ h3 {
   .card:hover,
   .skill-block:hover,
   .stat-card:hover,
+  .featured-project-card:hover,
   .project-list article:hover,
   .timeline-list li:hover {
     border-color: rgba(110, 231, 255, 0.42);
     box-shadow: 0 20px 46px rgba(0, 0, 0, 0.28), 0 0 30px rgba(70, 182, 255, 0.07);
     transform: translateY(-4px);
+  }
+
+  .featured-project-card:hover .project-card-action span {
+    transform: translate(2px, -2px);
+  }
+}
+
+@media (max-width: 1080px) {
+  .featured-project-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 
@@ -1366,6 +1523,7 @@ body.js-ready [data-reveal].is-visible {
   .grid.three,
   .stats-grid,
   .skill-board,
+  .featured-project-grid,
   .certificate-summary {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -1553,6 +1711,7 @@ body.js-ready [data-reveal].is-visible {
   .grid.three,
   .stats-grid,
   .skill-board,
+  .featured-project-grid,
   .certificate-summary {
     grid-template-columns: 1fr;
   }
